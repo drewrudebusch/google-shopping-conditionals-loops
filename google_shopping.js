@@ -2,15 +2,15 @@ var data = require("./products.json")
 
 // Write your solutions below
 
-var backorder = [];
+var products = [];
 
-var isBackorder = function() {
+var isCanon = function() {
 	for (i = 0; i < data.items.length; i++) {
-		if (data.items[i].product.inventories[0].availability === "backorder") {
-			backorder.push(data.items[i].product.googleId)
+		if (data.items[i].product.brand === "Canon") {
+			products.push(data.items[i].product.googleId)
 		}
 	}
-console.log(backorder);
+console.log(products);
 }
 
-isBackorder();
+isCanon();
