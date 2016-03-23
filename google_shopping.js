@@ -3,16 +3,17 @@ var data = require("./products.json")
 // Write your solutions below
 
 var products = [];
+var productDetails = [];
 
-var isCanonAndEbay = function() {
+var printAllItems = function() {
 	for (i = 0; i < data.items.length; i++) {
-		if (data.items[i].product.brand === "Canon") {
-			if (data.items[i].product.author.name.slice(0,4) === "eBay") {
-				products.push(data.items[i].product.googleId)
-			}
-		}
+		productDetails = [];
+		productDetails.brand = (data.items[i].product.brand);
+		productDetails.price = (data.items[i].product.inventories[0].price);
+		productDetails.link = (data.items[i].product.images[0].link);
+		products.push(productDetails);
 	}
-console.log(products);
+	console.log(products);
 }
 
-isCanonAndEbay();
+printAllItems();
