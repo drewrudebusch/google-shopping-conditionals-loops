@@ -1,6 +1,9 @@
-var data = require("./products.json")
+1.) 25 items
+	1a.) console.log(data.items.length);
+	2a.) console.log(data.currentItemCount);
 
-// Write your solutions below
+
+2.) [ '6067895891153887292', '17666264616508775253' ]
 
 var backorder = [];
 
@@ -14,3 +17,5 @@ console.log(backorder);
 }
 
 isBackorder();
+
+3.) 
