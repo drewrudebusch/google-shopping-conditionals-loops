@@ -4,13 +4,15 @@ var data = require("./products.json")
 
 var products = [];
 
-var isCanon = function() {
+var isCanonAndEbay = function() {
 	for (i = 0; i < data.items.length; i++) {
 		if (data.items[i].product.brand === "Canon") {
-			products.push(data.items[i].product.googleId)
+			if (data.items[i].product.author.name.slice(0,4) === "eBay") {
+				products.push(data.items[i].product.googleId)
+			}
 		}
 	}
 console.log(products);
 }
 
-isCanon();
+isCanonAndEbay();

@@ -1,7 +1,7 @@
 1.) 25 items
 	1a.) console.log(data.items.length);
 	2a.) console.log(data.currentItemCount);
-
+*******************************************************
 
 2.) [ '6067895891153887292', '17666264616508775253' ]
 
@@ -18,4 +18,101 @@ console.log(backorder);
 
 isBackorder();
 
-3.) 
+** OR **
+
+var backorder = [];
+
+var isBackorder = function() {
+	for (var index in data.items) {
+		if (data.items[index].product.inventories[0].availability === "backorder") {
+			backorder.push(data.items[index].product.googleId)
+		}
+	}
+console.log(backorder);
+}
+
+isBackorder();
+
+*******************************************************
+
+3.) [ '11180453840663864493',
+  '18400283058629038583',
+  '17826874961104763871',
+  '17606249969320060651',
+  '17225849483606303723',
+  '16261575049293546089' ]
+
+var products = [];
+
+var multipleImages = function() {
+	for (i = 0; i < data.items.length; i++) {
+		if (data.items[i].product.images.length > 1) {
+			backorder.push(data.items[i].product.googleId)
+		}
+	}
+console.log(backorder);
+}
+
+multipleImages();
+*******************************************************
+
+4.) [ '11738086986303167840',
+  '6306163093076466800',
+  '18145315413250138307',
+  '18092316852173916770',
+  '17826874961104763871',
+  '16960148472439603410',
+  '16261575049293546089' ]
+
+var products = [];
+
+var isCanon = function() {
+	for (i = 0; i < data.items.length; i++) {
+		if (data.items[i].product.brand === "Canon") {
+			products.push(data.items[i].product.googleId)
+		}
+	}
+console.log(products);
+}
+
+isCanon();
+*******************************************************
+
+5.) [ '18145315413250138307' ] (for exact match of "eBay" as product.author.name)
+
+var products = [];
+
+var isCanonAndEbay = function() {
+	for (i = 0; i < data.items.length; i++) {
+		if (data.items[i].product.brand === "Canon") {
+			if (data.items[i].product.author.name === "eBay") {
+				products.push(data.items[i].product.googleId)
+			}
+		}
+	}
+console.log(products);
+}
+
+isCanonAndEbay();
+
+** OR **
+
+[ '18145315413250138307',
+  '18092316852173916770',
+  '17826874961104763871',
+  '16261575049293546089' ] (for all matches of any product.author.name contains "eBay")
+
+var products = [];
+
+var isCanonAndEbay = function() {
+	for (i = 0; i < data.items.length; i++) {
+		if (data.items[i].product.brand === "Canon") {
+			if (data.items[i].product.author.name.slice(0,4) === "eBay") {
+				products.push(data.items[i].product.googleId)
+			}
+		}
+	}
+console.log(products);
+}
+
+isCanonAndEbay()
